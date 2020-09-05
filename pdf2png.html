@@ -19,7 +19,7 @@
 }
 
 #pdf-main-container {
-	width: 400px;
+	width: 1000px;
 	margin: 20px auto;
 }
 
@@ -97,7 +97,7 @@
 			</div>
 			<div id="page-count-container">Page <div id="pdf-current-page"></div> of <div id="pdf-total-pages"></div></div>
 		</div>
-		<canvas id="pdf-canvas" width="400"></canvas>
+		<canvas id="pdf-canvas" width="1000"></canvas>
 		<div id="page-loader">Loading page ...</div>
 		<a id="download-image" href="#">Download PNG</a>
 	</div>
@@ -154,6 +154,7 @@ function showPage(page_no) {
 	__PDF_DOC.getPage(page_no).then(function(page) {
 		// As the canvas is of a fixed width we need to set the scale of the viewport accordingly
 		var scale_required = __CANVAS.width / page.getViewport(1).width;
+		console.log("scale_required: "+scale_required);
 
 		// Get viewport of the page at required scale
 		var viewport = page.getViewport(scale_required);
